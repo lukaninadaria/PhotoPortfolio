@@ -11,6 +11,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 
+app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 app.listen(config.get("port"));
 
 module.exports = app;
