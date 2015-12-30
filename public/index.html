@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
     <title></title>
@@ -15,10 +15,14 @@
 
     <script src="app/module.js"></script>
     <script src="app/components/home/controller.js"></script>
+    <script src="app/resources/AllPhotosResource.js"></script>
+
     <div ng-view></div>
 
     <div ng-controller="HomeController">
-        <p>{{ lalala }}</p>
+        <div ng-repeat="photo in photos">
+            <img ng-src="{{photo.photoPath}}">
+        </div>
     </div>
 </body>
 </html>

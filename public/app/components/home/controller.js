@@ -1,9 +1,16 @@
 /**
  * Created by dashyki on 28.12.2015.
  */
-angular.module('app')
-    .controller("HomeController", ['$scope', HomeController]);
+(function() {
+    angular.module('app')
+        .controller("HomeController", ['$scope', 'AllPhotosResource', HomeController]);
 
-function HomeController($scope) {
-    $scope.lalala = "LALALA";
-}
+    function HomeController($scope, AllPhotosResource) {
+        $scope.lalala = "LALALA";
+        $scope.photos = "";
+        AllPhotosResource.query({}).$promise
+            .then(function(res) {
+                $scope.photos = res;
+            });
+    }
+})();

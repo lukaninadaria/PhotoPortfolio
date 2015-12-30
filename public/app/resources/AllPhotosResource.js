@@ -7,6 +7,6 @@
 
     function allPhotosResource($resource) {
         return $resource('/api/photos',
-            {get : {method : 'JSONP'}});
+            {query : {method : 'JSONP', isArray : true}});
     };
 })();
