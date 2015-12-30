@@ -3,5 +3,6 @@
   "mongoose" : {
     "uri" : "mongodb://localhost/PhotoPortfolio",
     "options" : {}
-  }
+  },
+  "photoStorage" : "/photos"
 }

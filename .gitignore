@@ -33,3 +33,6 @@ bower_components
 
 # MongoDB files
 data
+
+# Photo storage for test purposes
+/storage/photos/

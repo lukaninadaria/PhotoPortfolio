@@ -9,6 +9,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'storage')));
 
 app.use('/api', routes);
 app.use('/api/photos', photos);
