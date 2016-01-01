@@ -6,7 +6,7 @@ var router = express.Router();
 var photoDal = require('../dal/photo');
 
 router.get('/', function(req, res) {
-    photoDal.getAllPhotos(function(err, data) {
+    photoDal.getAll(function(err, data) {
         res.json(data||{});
     });
 });

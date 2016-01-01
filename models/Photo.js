@@ -25,4 +25,4 @@ var schema = new Schema({
     }
 });
 
-module.exports.Photo = mongoose.model("Photo", schema);
+module.exports = mongoose.model("Photo", schema);

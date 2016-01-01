@@ -1,16 +1,19 @@
 /**
  * Created by dashyki on 24.12.2015.
  */
-var Photo = require("../models/Photo").Photo;
+var Photo = require("../models/photo");
+var path = require('path');
+var config = require("../config/index");
 
-getAll = function(callback) {
+function getAll(callback) {
     Photo.find({}, function(err, data) {
         callback && callback(err, data);
     });
 };
 
-create = function() {
-    var p = new Photo({photoPath: "path/to/image", tags: ["women", "beauty"]});
+function create(photoName) {
+    var imagePath = path.join(config.get("photoStorage"), photoName);
+    var p = new Photo({photoPath: imagePath, tags: ["town"]});
     p.save(function(err, photo, affected) {
         if (err) throw err;
         console.log(photo);
@@ -18,11 +21,12 @@ create = function() {
     });
 };
 
-getByTags = function(tags, callback) {
+function getByTags(tags, callback) {
     Photo.find({tags: { $all: tags }}, function(err, data) {
         callback && callback(err, data);
     });
 };
 
-module.exports.getAllPhotos = getAll;
-module.exports.getPhotoByTags = getByTags;
+module.exports.getAll = getAll;
+module.exports.getByTags = getByTags;
+module.exports.create = create;
