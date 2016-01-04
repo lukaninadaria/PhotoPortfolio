@@ -3,11 +3,15 @@
  */
 (function() {
     angular.module('app')
-        .service("PhotoService", ['AllPhotosResource', PhotoService]);
+        .service("PhotoService", ['AllPhotosResource', 'WomenPhotosResource', PhotoService]);
 
-    function PhotoService(allPhotosResource) {
+    function PhotoService(allPhotosResource, womenPhotosResource) {
         this.getPhotos = function() {
             return allPhotosResource.query({}).$promise;
-        }
+        };
+
+        this.getWomen = function() {
+            return womenPhotosResource.query({}).$promise;
+        };
     }
 })();

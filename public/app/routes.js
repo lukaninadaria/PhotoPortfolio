@@ -9,6 +9,10 @@ angular.module('app')
                     templateUrl: 'app/components/photo/photo.html',
                     controller: 'HomeController'
                 }).
+                when('/women', {
+                    templateUrl: 'app/components/photo/photo.html',
+                    controller: 'WomenController'
+                }).
                 otherwise({
                     redirectTo: '/'
                 });
