@@ -5,10 +5,9 @@
     angular.module('app')
         .controller("HomeController", ['$scope', 'PhotoService', HomeController]);
 
-    function HomeController($scope, homeService) {
-        $scope.lalala = "LALALA";
+    function HomeController($scope, photoService) {
         $scope.photos = "";
-        homeService.getPhotos()
+        photoService.getPhotos()
             .then(function(res) {
                 $scope.photos = res;
             });
