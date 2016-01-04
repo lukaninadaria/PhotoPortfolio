@@ -10,7 +10,9 @@ function getAll(req, res) {
 }
 
 function getWomen(req, res) {
-
+    photoDal.getByTag('women', function(err, data) {
+        res.json(data||{});
+    });
 }
 
 module.exports.getAll = getAll;

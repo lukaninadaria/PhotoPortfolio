@@ -11,6 +11,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'storage')));
 
 app.get('/api/photos', photoApi.getAll);
+app.get('/api/photos/women', photoApi.getWomen);
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });

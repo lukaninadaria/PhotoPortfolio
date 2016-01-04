@@ -27,6 +27,13 @@ function getByTags(tags, callback) {
     });
 };
 
+function getByTag(tag, callback) {
+    Photo.find({tags: tag}, function(err, data) {
+        callback && callback(err, data);
+    });
+};
+
 module.exports.getAll = getAll;
 module.exports.getByTags = getByTags;
+module.exports.getByTag = getByTag;
 module.exports.create = create;
