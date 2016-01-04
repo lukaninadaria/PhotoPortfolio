@@ -3,12 +3,12 @@
  */
 (function() {
     angular.module('app')
-        .controller("HomeController", ['$scope', 'AllPhotosResource', HomeController]);
+        .controller("HomeController", ['$scope', 'HomeService', HomeController]);
 
-    function HomeController($scope, AllPhotosResource) {
+    function HomeController($scope, homeService) {
         $scope.lalala = "LALALA";
         $scope.photos = "";
-        AllPhotosResource.query({}).$promise
+        homeService.getPhotos()
             .then(function(res) {
                 $scope.photos = res;
             });
