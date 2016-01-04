@@ -2,8 +2,7 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var config = require("./config");
-var routes = require('./routes/index');
-var photos = require('./routes/photos');
+var photoApi = require('./api/photos');
 var app = express();
 
 app.use(bodyParser.json());
@@ -11,9 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'storage')));
 
-app.use('/api', routes);
-app.use('/api/photos', photos);
-
+app.get('/api/photos', photoApi.getAll);
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
