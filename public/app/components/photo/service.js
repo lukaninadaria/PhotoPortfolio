@@ -3,9 +3,9 @@
  */
 (function() {
     angular.module('app')
-        .service("HomeService", ['AllPhotosResource', HomeService]);
+        .service("PhotoService", ['AllPhotosResource', PhotoService]);
 
-    function HomeService(allPhotosResource) {
+    function PhotoService(allPhotosResource) {
         this.getPhotos = function() {
             return allPhotosResource.query({}).$promise;
         }

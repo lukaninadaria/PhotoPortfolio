@@ -3,7 +3,7 @@
  */
 (function() {
     angular.module('app')
-        .controller("HomeController", ['$scope', 'HomeService', HomeController]);
+        .controller("HomeController", ['$scope', 'PhotoService', HomeController]);
 
     function HomeController($scope, homeService) {
         $scope.lalala = "LALALA";

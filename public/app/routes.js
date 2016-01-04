@@ -6,7 +6,7 @@ angular.module('app')
         function ($routeProvider) {
             $routeProvider.
                 when('/', {
-                    templateUrl: 'app/components/home/home.html',
+                    templateUrl: 'app/components/photo/photo.html',
                     controller: 'HomeController'
                 }).
                 otherwise({
