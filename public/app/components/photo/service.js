@@ -13,5 +13,9 @@
         this.getWomen = function() {
             return allPhotosResource.query({"tags" : "women"}).$promise;
         };
+
+        this.getMen = function() {
+            return allPhotosResource.query({"tags" : "men"}).$promise;
+        };
     }
 })();
