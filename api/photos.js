@@ -4,9 +4,15 @@
 var photoDal = require('../dal/photo');
 
 function getAll(req, res) {
-    photoDal.getAll(function(err, data) {
+    var tags = req.query.tags;
+    var callback = function(err, data) {
         res.json(data||{});
-    });
+    };
+    if (tags) {
+        photoDal.getByTags(tags.split(','), callback)
+    } else {
+        photoDal.getAll(callback);
+    }
 }
 
 function getWomen(req, res) {
